@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>My Bilingual Store</title>
+  <style>
+    body { font-family: Arial; text-align: center; padding: 20px; direction: ltr; }
+    .lang-btn { margin: 10px; padding: 10px; cursor: pointer; }
+    .arabic { display: none; direction: rtl; }
+  </style>
 </head>
 <body>
   <h1>Welcome to my bilingual store!</h1>
-  <p>This is the English version.</p>
+  <div>
+    <button class="lang-btn" onclick="switchLang('en')">English</button>
+    <button class="lang-btn" onclick="switchLang('ar')">العربية</button>
+  </div>
+
+  <div class="english">
+    <h2>Product: Prayer Beads</h2>
+    <p>High quality handmade prayer beads.</p>
+    <p>Price: $10</p>
+  </div>
+
+  <div class="arabic">
+    <h2>المنتج: مسبحة يدوية</h2>
+    <p>مسبحة يدوية عالية الجودة.</p>
+    <p>السعر: ١٠ دولارات</p>
+  </div>
+
+  <script>
+    function switchLang(lang) {
+      const ar = document.querySelector('.arabic');
+      const en = document.querySelector('.english');
+      if (lang === 'ar') {
+        ar.style.display = 'block';
+        en.style.display = 'none';
+        document.body.style.direction = 'rtl';
+      } else {
+        ar.style.display = 'none';
+        en.style.display = 'block';
+        document.body.style.direction = 'ltr';
+      }
+    }
+  </script>
 </body>
 </html>
